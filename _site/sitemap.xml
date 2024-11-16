@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:4000/2024-11-09-under-maintenance/</loc>
+<lastmod>2024-11-09T22:23:14+09:30</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2024-11-17-One-Week-over-Mint-OS-(Linux-Ubuntu)-Drama/</loc>
+<lastmod>2024-11-17T02:00:14+09:30</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/about/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/blogs/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/</loc>
+<lastmod>2024-11-17T04:05:51+09:30</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/web/files/Academic_CV_BD.pdf</loc>
+<lastmod>2024-10-28T21:43:42+09:30</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/web/files/Generic_CV_BD.pdf</loc>
+<lastmod>2024-10-28T21:43:42+09:30</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/web/files/Thesis_2020.pdf</loc>
+<lastmod>2024-10-28T21:43:42+09:30</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/web/html/EventTable/schedule_table.html</loc>
+<lastmod>2024-10-28T21:43:42+09:30</lastmod>
+</url>
+</urlset>
