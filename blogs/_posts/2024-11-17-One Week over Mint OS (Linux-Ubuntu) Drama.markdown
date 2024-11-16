@@ -22,12 +22,12 @@ I forced the PC to shut down, and attempted to restart in the hope of resolving 
 
 _Many seconds, hours, days gone through_ **Oops, Ｉ messed up the boot**
 
-![I did many starts]({{ site.baseurl }}/media/2024-11-17/2024-11-11-234606_002.jpeg "BIOS display")
+![I did many starts]({{ site.baseurl }}/assets/media/2024-11-17/2024-11-11-234606_002.jpeg "BIOS display")
 
 # Issue 2 - Can't boot up the Mint OS
 It was bit late that I couldn't boot up Mint OS. At the beginning, I was bit annoyed but I was optimistic that I could fix it up. Over the course of several nights, while I was searhing the possible solutions, I started losing patience, and felt upset that I wouldn't be able to use Linux at all in near future. Then I was thinking it might be a good idea to reinstall another Linux-based OS, such as Arch OS or Debian OS. I gave it up after I was attempting to install them. It was a very _complicated_ process. <br>
-![Installation for Debian OS]({{ site.baseurl }}/media/2024-11-17/2024-11-12-132835_002.jpeg "Debian error")
-![Installation for Arch OS]({{ site.baseurl }}/media/2024-11-17/2024-11-12-212255_002.jpeg "No idea...")
+![Installation for Debian OS]({{ site.baseurl }}/assets/media/2024-11-17/2024-11-12-132835_002.jpeg "Debian error")
+![Installation for Arch OS]({{ site.baseurl }}/assets/media/2024-11-17/2024-11-12-212255_002.jpeg "No idea...")
 
 # Pivotal sucess
 While I was talking my friend, I learnt that there is a boot repair tool from [Ubuntu](https://help.ubuntu.com/community/Boot-Repair){:target="_blank"} might be able to help me from this situation. I wipe the only USB out and to boot the live session from this boot repair tool. I followed the instruction, and it did not help. I have to seek the help from other people on [Ubuntu Forum](https://ubuntuforums.org/showthread.php?t=2502458){:target="_blank"}.
@@ -37,7 +37,7 @@ While I was talking my friend, I learnt that there is a boot repair tool from [U
 
 # Distorted display resolution 
 Ｃheerful moment didn't last for a long time. 
-![Scale can't be modified]({{ site.baseurl }}/media/2024-11-17/2024-11-16-182422_002.jpeg "too large!!")
+![Scale can't be modified]({{ site.baseurl }}/asses/media/2024-11-17/2024-11-16-182422_002.jpeg "too large!!")
 
 I found you can actually set up a new mode for this display by following these codes:
 
