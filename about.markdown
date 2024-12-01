@@ -4,17 +4,11 @@ title: About
 permalink: /about/
 ---
 
+![Potrait]({{ site.baseurl }}/web/images/portrait.jpeg "Potrait")
 
+Patrick Di (Chinese: **狄斌寅**, _pinyin: Dí, Binyín_) is a highly versatile and motivated agricultural professionalwith a strong background in Australia’s agriculture industry. <br>
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Specializing in tropical agriculture, farming systems, and emerging technologies, he has a proven record in leading research and extension activities in Integrated Pest Management (IPM), Climate-Smart Agriculture (CSA), and Precision Agriculture (PA). With expertise in crop phenotyping, field data collection, genomics, and remote sensing, he excels in data analytics and is committed to effective science communication. <br>
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+He currently serves as the Ag Institute Australia’s QLD & NT Divisional Vice-Chair and NT representative for Network Researchers in Agriculture for International Development (RAID) Network. 
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
