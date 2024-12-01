@@ -49,7 +49,7 @@ In our last day, our journey reached its climax when Her Excellency the Honourab
 Throughout the Dialogue, we learnt many perspectives on Australia-China Bilateral relations. For both nations, there is no doubt that only the co-operation brings prosperity and mutual benefits. Amidst the rise of populism and protectionism, we need to cherish the peaceful moments we have. After all, there is still room for potential collabrations. 
 
 
-In the end, although there are many differences between two nations, **keep engaging** plays a pivtal and centric role in building a stable bilateral relationship between Australia and China. 
+In the end, although there are many differences between two nations, **keeping engaging** plays a pivtal and centric role in building a stable bilateral relationship between Australia and China. 
 
 
 >_A relationship where we can cooperate where we can, disagree where we must, and engage in the national interest._ <sup>[3]</sup>
