@@ -9,14 +9,14 @@ Several weeks ago, I bought a new PC with a dual operating system - Windows 11 a
 
 Linux (and Ubuntu) weren't new to me. I used them when I was a research student in the university - installing Ubuntu and Tails OS systems on a Raspberry Pi module or a USB stick, using some Linux command lines on Windows Subsystem for Linux (WSL) for fun. Before that, I have also been using Mac OS system (a UNIX-based system) for approximately six years (also using Wine containers or Parallels Desktop Virtual Machine for accessing Windows based software for my studies, such as APSIM). However, this time was my _FIRST_ time really seriously using Linux. 
 
-To be fair and honest, I am not good at coding. Coding for me has been a steep learning curve for last four years.  Before downloading and installing Linux permenantly, I have already heard from people that coding is essential to use Linux, and this is probably because Linux is easily broken - many of basic uses involve coding and troubleshooting, such as installing the software by `sudo apt-get install`. 
+To be fair and honest, I am not good at coding. Coding for me has been a steep learning curve for last four years.  Before downloading and installing Linux permanently, I have already heard from people that coding is essential to use Linux, and this is probably because Linux is easily broken - many of basic uses involve coding and troubleshooting, such as installing the software by `sudo apt-get install`. 
 
 
 **Challenges accepted!**
 
 
 # Issue 1 - Step into a "trap"
-While I was using the Mint OS, my cursor couldn't move around. Luckily, the keyboard was working, and I did not feel panic about it, because I mentally prepard for anything going wrong. However, this time I didn't realise I went too far! 
+While I was using the Mint OS, my cursor couldn't move around. Luckily, the keyboard was working, and I did not feel panic about it, because I mentally prepared for anything going wrong. However, this time I didn't realise I went too far! 
 
 I forced the PC to shut down, and attempted to restart in the hope of resolving the issue automatically picked up by the system. Unfortunately, it didn't, so I was looking for the possible solution online. 
 

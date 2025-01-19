@@ -6,7 +6,7 @@ categories: personal journey
 ---
 
 
-Reflections from the 14<sup>th</sup> ACYD
+A reflection from the 14<sup>th</sup> ACYD
 ==============
 
 ***A unique lens of Australia-China Bilateral relations***
@@ -16,9 +16,9 @@ _Disclaimer: Opinions expressed are solely my own and do not express the views o
 
 # Background
 
-Attending the 14<sup>th</sup> [Australia-China Youth Dialogue](https://www.acyd.org.au/){:target="_blank"} is truely a privilege. With thirty brightest minds hailing from Austraia and China across various fields, we gathered together in Adelaide from 22<sup>nd</sup> Novemeber to 25<sup>th</sup> Novemeber, 2024. <br>
+Attending the 14<sup>th</sup> [Australia-China Youth Dialogue](https://www.acyd.org.au/){:target="_blank"} is truly a privilege. With thirty brightest minds hailing from Australia and China across various fields, we gathered together in Adelaide from 22<sup>nd</sup> November to 25<sup>th</sup> November, 2024. <br>
 
-![Beautiful birdview from the red centre, while I was stop over Alice Spring Airport en route to Adelaide]({{ site.baseurl }}/assets/media/2024-12-01/IMG_5486.jpg "Macdonnell Ranges")
+![A beautiful bird's-eye view from the red centre, while I was stop over Alice Spring Airport en route to Adelaide]({{ site.baseurl }}/assets/media/2024-12-01/IMG_5486.jpg "Macdonnell Ranges")
 
 
 At the time of the blossoming season of jacaranda in Adelaide, we were fortunate to hear the views from prestigious speakers over the sixteen sessions within the theme of **"Planning for the Future by Learning from the Past"** (Chinese:_从过去，见未来_). This Dialogue covered a range of topics from re-engagement between two nations, heated geo-political tensions to arts and sustainability. <br>
@@ -32,7 +32,7 @@ According to the South Australian Government [website](https://statedevelopment.
 
 >China remains an important two-way trading partner for South Australia with merchandise exports the highest on record at $4.23 billion to the end of June 2024.<sup>[1]</sup><br>
 
-For many Australian agricultural producers, particularly the wine industry, China is a major player in the global commondity market. Even though the trade disputes and many efforts into market diversification over the last couple of years, Chinese market still dominates the shares of Australia's exports destinations - as Australia’s exports to China rose 18% to a record $219 billion in 2023, or 32% of total exports according to Export Finance Australia<sup>[2]</sup>.
+For many Australian agricultural producers, particularly the wine industry, China is a major player in the global commodity market. Even though the trade disputes and many efforts into market diversification over the last couple of years, Chinese market still dominates the shares of Australia's exports destinations - as Australia’s exports to China rose 18% to a record $219 billion in 2023, or 32% of total exports according to Export Finance Australia<sup>[2]</sup>.
 
 
 ![Learning about how to make wine!]({{ site.baseurl }}/assets/media/2024-12-01/IMG_5503.jpg "Wolf Blass Winery")
@@ -46,10 +46,10 @@ In our last day, our journey reached its climax when Her Excellency the Honourab
 
 ![Government House View]({{ site.baseurl }}/assets/media/2024-12-01/IMG_5531.jpg "SA Government House")
 
-Throughout the Dialogue, we learnt many perspectives on Australia-China Bilateral relations. For both nations, there is no doubt that only the co-operation brings prosperity and mutual benefits. Amidst the rise of populism and protectionism, we need to cherish the peaceful moments we have. After all, there is still room for potential collabrations. 
+Throughout the Dialogue, we learnt many perspectives on Australia-China Bilateral relations. For both nations, there is no doubt that only the co-operation brings prosperity and mutual benefits. Amidst the rise of populism and protectionism, we need to cherish the peaceful moments we have. After all, there is still room for potential collaborations. 
 
 
-In the end, although there are many differences between two nations, **keeping engaging** plays a pivtal and centric role in building a stable bilateral relationship between Australia and China. 
+In the end, although there are many differences between two nations, **keeping engaging** plays a pivotal and centric role in building a stable bilateral relationship between Australia and China. 
 
 
 >_A relationship where we can cooperate where we can, disagree where we must, and engage in the national interest._ <sup>[3]</sup>
@@ -57,7 +57,7 @@ In the end, although there are many differences between two nations, **keeping e
 
 
 # Acknowledgement 
-The author would like to acknowledge the management team from Australia-China Youth Dialogue for organising and curating this fantasitic event so seamlessly. The author also would like to thank to all supporters and sponsors for making this event possible, particularly the [National Foundation for Australia-China Relations](https://www.australiachinafoundation.org.au/) (NFACR) (Chinese: _澳中基金会_).
+The author would like to acknowledge the management team from Australia-China Youth Dialogue for organising and curating this fantastic event so seamlessly. The author also would like to thank to all supporters and sponsors for making this event possible, particularly the [National Foundation for Australia-China Relations](https://www.australiachinafoundation.org.au/) (NFACR) (Chinese: _澳中基金会_).
 
 
 
@@ -66,4 +66,4 @@ The author would like to acknowledge the management team from Australia-China Yo
 [2] Export Finance Australia (2024, July) _China—Record imports from Australia, but economic headwinds mount_, Export Finance Australia, https://www.exportfinance.gov.au/resources/world-risk-developments/2024/july/china-record-imports-from-australia-but-economic-headwinds-mount/. <br>
 [3] Wong, P. (2024, August 16) _Opening remarks at the eighth Australia-China High Level Dialogue_, Minister for Foreign Affairs, https://www.foreignminister.gov.au/minister/penny-wong/speech/opening-remarks-eighth-australia-china-high-level-dialogue.
 
-[The End]
+[Ends]
