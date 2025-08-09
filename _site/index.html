@@ -491,7 +491,23 @@
                 // 表单提交成功响应
                 // 在实际应用中，这里应该是真实API请求
                 // const success = Math.random() > 0.2; // 模拟80%的成功率
-                const success = "https://script.google.com/macros/s/AKfycbzaapCZ6YOpF4pmbkqWyMAJFi3MkpdD1YSVc0Fc1XfadSbRd6tqDLe46-gutR36OXIYPA/exec"
+                // 实际应用中，应该替换为真实的API调用
+                try {
+
+                  const fd = new FormData();
+fd.append('name', document.getElementById('name').value);
+fd.append('email', document.getElementById('email').value);
+fd.append('message', document.getElementById('message').value);
+fd.append('cf-turnstile-response', cfToken);
+
+const res = await fetch('https://script.google.com/macros/s/AKfycbzaapCZ6YOpF4pmbkqWyMAJFi3MkpdD1YSVc0Fc1XfadSbRd6tqDLe46-gutR36OXIYPA/exec', {
+    method: 'POST',
+    body: fd
+});
+
+    
+    const result = await res.json();
+    const success = result.success; // 从API响应中获取真实状态
 
                 if(success) {
                     showStatusMessage("表单提交成功！感谢您的联系，我们会尽快回复您。", "success");

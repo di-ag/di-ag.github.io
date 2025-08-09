@@ -463,63 +463,44 @@
         const submitBtn = document.getElementById('submitBtn');
         const statusMessage = document.getElementById('statusMessage');
         
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // 显示加载状态
-            submitBtn.classList.add('loading');
-            
-            try {
-                // 获取Cloudflare Turnstile验证令牌
-                const cfToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
-                
-                if (!cfToken) {
-                    throw new Error("请完成验证后再提交表单");
-                }
-                
-                // 收集表单数据
-                const formData = {
-                    name: document.getElementById('name').value,
-                    email: document.getElementById('email').value,
-                    message: document.getElementById('message').value,
-                    'cf-turnstile-response': cfToken
-                };
-                
-                // 模拟API请求延迟（实际使用时请移除setTimeout）
-                // await new Promise(resolve => setTimeout(resolve, 1200));
-                
-                // 表单提交成功响应
-                // 在实际应用中，这里应该是真实API请求
-                // const success = Math.random() > 0.2; // 模拟80%的成功率
-                const success = "https://script.google.com/macros/s/AKfycbzaapCZ6YOpF4pmbkqWyMAJFi3MkpdD1YSVc0Fc1XfadSbRd6tqDLe46-gutR36OXIYPA/exec"
 
-                if(success) {
-                    showStatusMessage("表单提交成功！感谢您的联系，我们会尽快回复您。", "success");
-                    form.reset();
-                    
-                    // 重置Turnstile验证
-                    if(window.turnstile) {
-                        turnstile.reset();
-                    }
-                } else {
-                    showStatusMessage("reCAPTCHA验证失败，请重新验证后再次提交", "error");
-                }
-            } catch (error) {
-                let message = "提交过程中出现错误，请稍后再试";
-                if (error.message.includes("验证")) {
-                    message = error.message;
-                }
-                showStatusMessage(message, "error");
-            } finally {
-                // 隐藏加载状态
-                submitBtn.classList.remove('loading');
-            }
+
+        form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    submitBtn.classList.add('loading');
+    statusMessage.textContent = ''; // 清空消息
+
+    try {
+        const cfToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
+        if (!cfToken) throw new Error("请完成验证后再提交表单");
+
+        const fd = new FormData();
+        fd.append('name', document.getElementById('name').value);
+        fd.append('email', document.getElementById('email').value);
+        fd.append('message', document.getElementById('message').value);
+        fd.append('cf-turnstile-response', cfToken);
+
+        const res = await fetch('https://script.google.com/macros/s/AKfycbzaapCZ6YOpF4pmbkqWyMAJFi3MkpdD1YSVc0Fc1XfadSbRd6tqDLe46-gutR36OXIYPA/exec', {
+            method: 'POST',
+            body: fd
         });
-        
-        function showStatusMessage(msg, type) {
-            statusMessage.textContent = msg;
-            statusMessage.className = `status-message ${type}`;
+
+        const result = await res.json();
+
+        if (result.success) {
+            showStatusMessage("表单提交成功！感谢您的联系，我们会尽快回复您。", "success");
+            form.reset();
+            if (window.turnstile) turnstile.reset();
+        } else {
+            showStatusMessage(result.message || "Turnstile验证失败，请重新提交。", "error");
         }
+    } catch (err) {
+        showStatusMessage(err.message || "提交过程中出现错误，请稍后再试。", "error");
+    } finally {
+        submitBtn.classList.remove('loading');
+    }
+});
+
     </script>
 
 </div>
