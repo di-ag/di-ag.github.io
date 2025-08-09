@@ -474,16 +474,23 @@
         const cfToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
         if (!cfToken) throw new Error("请完成验证后再提交表单");
 
-        const fd = new FormData();
-        fd.append('name', document.getElementById('name').value);
-        fd.append('email', document.getElementById('email').value);
-        fd.append('message', document.getElementById('message').value);
-        fd.append('cf-turnstile-response', cfToken);
+        const data = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    message: document.getElementById('message').value,
+    'cf-turnstile-response': cfToken
+};
 
-        const res = await fetch('https://script.google.com/macros/s/AKfycbzaapCZ6YOpF4pmbkqWyMAJFi3MkpdD1YSVc0Fc1XfadSbRd6tqDLe46-gutR36OXIYPA/exec', {
-            method: 'POST',
-            body: fd
-        });
+const res = await fetch('https://script.google.com/macros/s/AKfycbzaapCZ6YOpF4pmbkqWyMAJFi3MkpdD1YSVc0Fc1XfadSbRd6tqDLe46-gutR36OXIYPA/exec', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+});
+
+
+
 
         const result = await res.json();
 
