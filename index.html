@@ -68,6 +68,7 @@
     <a href="#memberships" class="w3-bar-item w3-button">Memberships</a>
     <a href="#service" class="w3-bar-item w3-button">Services</a>
     <a href="#award" class="w3-bar-item w3-button">Awards</a>
+    <a href="#contact" class="w3-bar-item w3-button">Contact Me</a>
     <a href="/blogs/" class="w3-bar-item w3-button" target="_blank">Blogs</a>
   </div>
 </nav>
@@ -97,9 +98,6 @@
           <!--Personal Information --> </a>
         </p>
         <p class="w3-center">
-          <a href="mailto:binyin.di AT cqumail.com">Student Email</a> &nbsp/&nbsp
-          <a href="mailto:patrick_di AT icloud.com">Personal Email</a> &nbsp/&nbsp
-		  <a href="tel:+61466967005">Phone</a> &nbsp/&nbsp
           <a href="https://www.linkedin.com/in/binyindi/" target="_blank">LinkedIn</a> &nbsp/&nbsp
 		  <a
     id="cy-effective-orcid-url"
@@ -261,8 +259,213 @@
   
 
   
-  
-  
+    <!-- Contact Form -->
+<div class="contact-form-container" id="contact">
+  <form id="contactForm" class="styled-form">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Please type your name" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="example@example.com" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="message">Messages</label>
+      <textarea id="message" name="message" placeholder="Please type your messages..." required></textarea>
+    </div>
+    
+    <!-- Cloudflare Turnstile CAPTCHA -->
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAABp3uexXm79zBvu4"></div>
+    
+    <button type="submit" id="submitBtn" class="submit-button">Submit</button>
+  </form>
+
+  <style>
+    .contact-form-container {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 30px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .form-group {
+      margin-bottom: 25px;
+      position: relative;
+    }
+    
+    .styled-form input, 
+    .styled-form textarea {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+    
+    .styled-form input:focus, 
+    .styled-form textarea:focus {
+      border-color: #4285f4;
+      box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2);
+    }
+    
+    .styled-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #555;
+    }
+    
+    .styled-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .submit-button {
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      width: 100%;
+    }
+    
+    .submit-button:hover {
+      background-color: #3367d6;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(66, 133, 244, 0.3);
+    }
+    
+    .cf-turnstile {
+      margin: 25px 0;
+      display: flex;
+      justify-content: center;
+    }
+    
+    /* Loading state */
+    .loading {
+      position: relative;
+      pointer-events: none;
+    }
+    
+    .loading::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 0.8s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    
+    @media (max-width: 600px) {
+      .contact-form-container {
+        padding: 20px;
+      }
+      
+      .styled-form input, 
+      .styled-form textarea {
+        padding: 12px;
+      }
+    }
+  </style>
+
+  <script>
+    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+      
+      setTimeout(() => {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+        submitBtn.textContent = '消息已发送 ✓';
+        submitBtn.style.backgroundColor = '#34a853';
+        
+        setTimeout(() => {
+          this.reset();
+          submitBtn.textContent = '发送消息';
+          submitBtn.style.backgroundColor = '';
+        }, 2000);
+      }, 1500);
+    });
+  </script>
+</div>
+
+<!-- Place this at the bottom of your page -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  // 取出 Turnstile 验证 token
+  const cfToken = document.querySelector('[name="cf-turnstile-response"]').value;
+
+  const formData = {
+    name: this.name.value,
+    email: this.email.value,
+    message: this.message.value,
+    'cf-turnstile-response': cfToken
+  };
+
+  try {
+    const res = await fetch('https://script.google.com/macros/s/AKfycbzaapCZ6YOpF4pmbkqWyMAJFi3MkpdD1YSVc0Fc1XfadSbRd6tqDLe46-gutR36OXIYPA/exec', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+
+    const result = await res.json();
+
+    if(result.success){
+      alert("Form submitted successfully, thanks!");
+      this.reset();
+      // 如果想要重新刷新验证，可以调用：
+      if(window.turnstile){
+        window.turnstile.reset();
+      }
+    } else {
+      alert("reCAPTCHA verification failed, please retry!");
+    }
+  } catch (err) {
+    alert("Error reported, please try again later!");
+    console.error(err);
+  }
+});
+</script>
+
+
+
+<br>
+<br>
+
+
 
   <div class="w3-light-grey w3-center w3-padding-24">
 
