@@ -449,7 +449,7 @@
                  data-theme="light" data-size="normal"></div>
                  
             <button type="submit" id="submitBtn" class="submit-btn">
-                <span class="btn-text">Submission</span>
+                <span class="btn-text">Submit</span>
                 <span class="loading-indicator"></span>
             </button>
             
@@ -457,52 +457,138 @@
         </form>
     </div>
 
+
     <script>
-        const form = document.getElementById('contactForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const statusMessage = document.getElementById('statusMessage');
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const statusMessage = document.getElementById('statusMessage');
+            
+            // 显示状态消息
+            function showStatusMessage(msg, type = 'info') {
+                statusMessage.className = type;
+                statusMessage.textContent = msg;
+                statusMessage.style.display = "block";
+                
+                // 成功消息在7秒后自动隐藏
+                if (type === "success") {
+                    setTimeout(() => {
+                        statusMessage.style.display = "none";
+                    }, 7000);
+                }
+            }
+            
+            // 表单验证
+            function validateForm() {
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
+                const token = document.querySelector('[name="cf-turnstile-response"]')?.value;
+                
+                // 验证名字至少2个字符
+                if (!name || name.length < 2) {
+                    showStatusMessage("请提供有效的名字（至少2个字符）", "error");
+                    return false;
+                }
+                
+                // 验证邮箱格式
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email || !emailRegex.test(email)) {
+                    showStatusMessage("请输入有效的电子邮箱地址", "error");
+                    return false;
+                }
+                
+                // 验证消息至少10个字符
+                if (!message || message.length < 10) {
+                    showStatusMessage("留言内容至少需要10个字符", "error");
+                    return false;
+                }
+                
+                // 验证令牌是否存在
+                if (!token) {
+                    showStatusMessage("请完成人机验证", "error");
+                    return false;
+                }
+                
+                return true;
+            }
+            
+            // 提交处理函数
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // 客户端验证
+                if (!validateForm()) return;
+                
+                submitBtn.classList.add('loading');
+                submitBtn.querySelector('.btn-text').textContent = "提交中...";
+                statusMessage.textContent = '';
+                
+                try {
+                    // 获取验证码令牌
+                    const cfToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
+                    
+                    // 创建表单数据对象
+                    const formData = {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        message: document.getElementById('message').value,
+                        'cf-turnstile-response': cfToken
+                    };
+                    
+                    // 将数据转换为URL编码格式
+                    const urlEncodedData = Object.entries(formData)
+                        .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+                        .join('&');
+                    
+                    // 发送简单请求(避免预检)
+                    const res = await fetch('https://script.google.com/macros/s/AKfycbxH0GR2ijG4YYhs8FTnZgjIjzepGCMKAuhKScOmaKxR9_inRoLv4U46FSQMjRJZoVjp1Q/exec', {
+                        method: 'POST',
+                        headers: {
+                            // 关键: 使用x-www-form-urlencoded避免预检
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: urlEncodedData
+                    });
+                    
+                    // 处理响应
+                    let result = {};
+                    try {
+                        result = await res.json();
+                    } catch (parseErr) {
+                        console.warn('JSON解析错误', parseErr);
+                    }
+                    
+                    // 处理结果
+                    if (result.success) {
+                        showStatusMessage("✅ 提交成功！感谢您的联系，我们会尽快回复您。", "success");
+                        form.reset();
+                        
+                        // 重置验证码
+                        if (typeof turnstile !== 'undefined') {
+                            turnstile.reset();
+                        }
+                    } else {
+                        const errorMsg = result.message || "提交过程中出错";
+                        showStatusMessage(`❌ ${errorMsg}`, "error");
+                        console.error('API错误:', result);
+                    }
+                } catch (err) {
+                    console.error('网络请求失败:', err);
+                    showStatusMessage("🚨 网络错误，请检查连接后重试", "error");
+                } finally {
+                    submitBtn.classList.remove('loading');
+                    submitBtn.querySelector('.btn-text').textContent = "提交表单";
+                }
+            });
+        });
         
-        form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    submitBtn.classList.add('loading');
-    statusMessage.textContent = ''; // 清空消息
-
-    try {
-        const cfToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
-        if (!cfToken) throw new Error("请完成验证后再提交表单");
-
-        const data = {
-    name: document.getElementById('name').value,
-    email: document.getElementById('email').value,
-    message: document.getElementById('message').value,
-    'cf-turnstile-response': cfToken
-};
-
-const res = await fetch('https://script.google.com/macros/s/AKfycbyt9BnSgSjE3trhAZMfKjoDGXIWQpdXqpbbjCZdLo6j8hn8j1leF9_mz4MztX_a2UCO/exec', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-});
-
-        const result = await res.json();
-
-        if (result.success) {
-            showStatusMessage("表单提交成功！感谢您的联系，我们会尽快回复您。", "success");
-            form.reset();
-            if (window.turnstile) turnstile.reset();
-        } else {
-            showStatusMessage(result.message || "Turnstile验证失败，请重新提交。", "error");
-        }
-    } catch (err) {
-        showStatusMessage(err.message || "提交过程中出现错误，请稍后再试。", "error");
-    } finally {
-        submitBtn.classList.remove('loading');
-    }
-});
-
+        // 在控制台显示技术信息
+        console.log('简单请求表单初始化完成');
+        console.log('使用内容类型: application/x-www-form-urlencoded');
+        console.log('提交URL: https://script.google.com/macros/s/AKfycbxH0GR2ijG4YYhs8FTnZgjIjzepGCMKAuhKScOmaKxR9_inRoLv4U46FSQMjRJZoVjp1Q/exec');
     </script>
+
 
 </div>
 
