@@ -422,8 +422,7 @@
             }
         }
     </style>
-</head>
-<body>
+
     <div class="container">
         <div class="form-header">
             <h2>Contact Me</h2>
@@ -463,8 +462,6 @@
         const submitBtn = document.getElementById('submitBtn');
         const statusMessage = document.getElementById('statusMessage');
         
-
-
         form.addEventListener('submit', async function(e) {
     e.preventDefault();
     submitBtn.classList.add('loading');
@@ -488,9 +485,6 @@ const res = await fetch('https://script.google.com/macros/s/AKfycbzaapCZ6YOpF4pm
     },
     body: JSON.stringify(data)
 });
-
-
-
 
         const result = await res.json();
 
