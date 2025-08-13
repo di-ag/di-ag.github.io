@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Contact Me</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--===============================================================================================-->
+  <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="css/util.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <!--===============================================================================================-->
+</head>
+
+<body>
+
+
+  <div class="container-contact100">
+    <div class="wrap-contact100">
+      <form id="google-form" class="contact100-form validate-form">
+        <span class="contact100-form-title">
+          Contact Me
+        </span>
+
+
+        <!-- <label class="label-input100" for="date">Date</label>
+        <div class="wrap-input100">
+          <input id="date" class="input100" type="date" placeholder="Eg. 01/01/1970">
+          <span class="focus-input100"></span>
+        </div> -->
+
+        <label class="label-input100" for="date">Date *</label>
+        <div class="wrap-input100" data-validate="Required">
+           <input
+           id="date"
+           class="input100"
+           type="text"
+           placeholder="DD/MM/YYYY">
+           <span class="focus-input100"></span>
+          </div>
+          
+
+
+        <label class="label-input100" for="first-name">Name *</label>
+        <div class="wrap-input100 validate-input" data-validate="Required">
+          <input id="name" class="input100" type="text" placeholder="Joe Blake">
+          <span class="focus-input100"></span>
+        </div>
+
+        <label class="label-input100" for="email">Email *</label>
+        <div class="wrap-input100" data-validate="Required">
+          <input id="email" class="input100" type="text" placeholder="Eg. example@email.com">
+          <span class="focus-input100"></span>
+        </div>
+
+
+        <label class="label-input100" for="message">Your Messages *</label>
+        <div class="wrap-input100" data-validate="Message is required">
+          <textarea id="message" class="input100" placeholder="Write us a message"></textarea>
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="container-contact100-form-btn">
+          <button class="contact100-form-btn">
+            Submit
+          </button>
+        </div>
+      </form>
+
+      <div class="contact100-more flex-col-c-m" style="background-image: url('images/bg-02.jpg');">
+        <div class="flex-w size1 p-b-47">
+          <div class="txt1 p-r-25">
+            <span class="lnr lnr-map-marker"></span>
+          </div>
+
+          <div class="flex-col size2">
+            <span class="txt1 p-b-20">
+              Address
+            </span>
+
+            <span class="txt2">
+              Katherine NT Australia 0850
+            </span>
+          </div>
+        </div>
+
+        <div class="dis-flex size1 p-b-47">
+          <div class="txt1 p-r-25">
+            <span class="lnr lnr-phone-handset"></span>
+          </div>
+
+          <div class="flex-col size2">
+            <span class="txt1 p-b-20">
+              Email Address
+            </span>
+
+            <span class="txt3">
+              <a href="mailto:example@example.com">Patrick_Di AT ICLOUD.COM</a>
+            </span>
+          </div>
+        </div>
+
+        <div class="dis-flex size1 p-b-47">
+          <div class="txt1 p-r-25">
+            <span class="lnr lnr-envelope"></span>
+          </div>
+
+          <div class="flex-col size2">
+            <span class="txt1 p-b-20">
+              About Me
+            </span>
+
+            <span class="txt3">
+              Patrick is a highly versatile agricultural professional in Australia.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div id="dropDownSelect1"></div>
+
+  <!--===============================================================================================-->
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/animsition/js/animsition.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/bootstrap/js/popper.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/select2/select2.min.js"></script>
+  <script>
+    $(".selection-2").select2({
+      minimumResultsForSearch: 20,
+      dropdownParent: $('#dropDownSelect1')
+    });
+  </script>
+  <!--===============================================================================================-->
+  <script src="vendor/daterangepicker/moment.min.js"></script>
+  <script src="vendor/daterangepicker/daterangepicker.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/countdowntime/countdowntime.js"></script>
+  <!--===============================================================================================-->
+  <script src="js/main.js"></script>
+  <script>
+    $('#google-form').submit(function (e) {
+      //在這裡我們要先擋掉form默認事件
+      e.preventDefault();
+
+      if ($('#name').val() && $('#email').val()) {//需要先確認必填欄位是否填寫
+        $.ajax({
+          // url為Google Form按下submit的aciotn
+          url: "https://docs.google.com/forms/d/e/1FAIpQLSesPVzGAQvjDzNvVuIWJd02Zt5Pj8XZdK0nbbH9LjsGwWq3CQ/formResponse",
+          crossDomain: true,//解決跨網域CORS的問題
+          data: {// entry.xxxxx 這些需要填寫您表單裡面的值，與其相互對應
+            "entry.1166974658": $('#date').val(),
+            "entry.2005620554": $('#name').val(),
+            "entry.1045781291": $('#email').val(),
+            "entry.839337160": $('#message').val() 
+          },
+          type: "POST", //因為是要進行insert的動作，故事用POST
+          dataType: "JSONP",
+          complete: function () {
+            //完成後把這些欄位清空
+            $('#name').val('')
+            $('#email').val('')
+            $('#date').val('')
+            $('#message').val('')
+            //最後跳轉到感謝的頁面
+            window.location.replace("Acknowledgement.html");
+          }
+        });
+      }
+    });
+  </script>
+ <!--  <form id="google-form" action="https://docs.google.com/forms/d/e/1FAIpQLSesPVzGAQvjDzNvVuIWJd02Zt5Pj8XZdK0nbbH9LjsGwWq3CQ/formResponse" method="POST" target="hidden_iframe">
+    <input id="name" name="entry.2005620554" required>
+    <input id="email" name="entry.1045781291" required>
+    <input id="year" name="entry.1166974658_year">
+    <input id="month" name="entry.1166974658_month">
+    <input id="day" name="entry.1166974658_day">
+    <textarea id="message" name="entry.839337160"></textarea>
+    <button type="submit">Submit</button>
+    </form>
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+<script>
+  $('#google-form').on('submit', function() {
+    setTimeout(function(){ window.location.replace("thank.html"); }, 500);
+  });
+  </script> -->
+</body>
+Adopted from the original  <a href="https://medium.com/dean-lin/%E5%AB%8Cgoogle-form%E5%A4%AA%E9%86%9C-%E9%82%A3%E5%B0%B1%E6%8A%8A%E4%BB%96%E7%95%B6%E5%BE%8C%E5%8F%B0%E5%90%A7xd-2b8a42d8b2ba" title="Medium Blog" target="_blank" class="w3-hover-opacity">project</a>.
+<br>
+Find the source code via <a href="https://github.com/dean9703111/customer_feedback_form" title="Medium Blog" target="_blank" class="w3-hover-opacity">GitHub Repository</a>.
+</html>
