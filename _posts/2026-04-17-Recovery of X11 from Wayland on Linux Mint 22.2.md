@@ -5,7 +5,8 @@ date:   2026-04-17 23:50:14 +0930
 categories: linux experience
 ---
 
-*This report was produced by Claude AI*
+*This report was produced by Claude AI*<br/>
+
 **System:** Linux Mint 22.2 "Xia" / Cinnamon Desktop  
 **Issue:** System persistently booted into Wayland session; unable to switch back to X11 (Xorg)
 
